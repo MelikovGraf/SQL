@@ -43,10 +43,6 @@ values (300),
 insert into roles_salary(role_id, salary_id)
 values (7,7);
 
-
-select * from roles;
-select * from roles_salary;
-
 alter table roles
 add column parking int;
 
@@ -56,14 +52,12 @@ rename column parking to taxi;
 alter table roles
 drop column taxi;
 
-select * from salary;
 update salary
 set monthly_salary = 5000
 where id = 55;
 
 delete from salary
 where id = 18;  
-
 
 create table employees (id serial primary key,employee_name varchar(50) not null);
 insert into employees(employee_name)
@@ -154,28 +148,30 @@ values (3,7),(1,4),(5,9),(40,13),(23,4),(11,2),(51,10),(15,13),(25,4),(16,1),(33
 (3225,9),(1240,13),(3123,4),(8211,2),(2512,10),(2195,13),(8225,4),(6216,1),(3233,7);
 select * from monthly_salaryees;
 
-create table roles_two(id serial primary key,role_name varchar(50));
---alter table roles_two alter column role_name varchar(50);
---insert into roles_two(role_name) values ('Junior Python Developer'),
---('Middle Python developer'),
---('Senior Python developer'),
---('Junior Java developer)',
---('Middle Java developer'),
---('Senior Java developer'),
---('Junior JavaScript developer'),
---('Middle JavaScript developer'),
---('Senior JavaScript developer'),
---('Junior Manual QA engineer'),
---('Middle Manual QA engineer'),
---('Senior Manual QA engineer'),
---('Project Manager'),
---('Designer'),
---('HR'),
---('CEO'),
---('Sales manager'),
---('Junior Automation QA engineer'),
---('Middle Automation QA engineer'),
---('Senior Automation QA engineer');
+DELETE FROM roles_two;
+create table roles_two(id serial primary key,role_name int NOT NULL);
+alter table roles_two
+alter column role_name TYPE varchar(50);
+insert into roles_two(role_name) values ('Junior Python Developer'),
+('Middle Python developer'),
+('Senior Python developer'),
+('Junior Java developer)',
+('Middle Java developer'),
+('Senior Java developer'),
+('Junior JavaScript developer'),
+('Middle JavaScript developer'),
+('Senior JavaScript developer'),
+('Junior Manual QA engineer'),
+('Middle Manual QA engineer'),
+('Senior Manual QA engineer'),
+('Project Manager'),
+('Designer'),
+('HR'),
+('CEO'),
+('Sales manager'),
+('Junior Automation QA engineer'),
+('Middle Automation QA engineer'),
+('Senior Automation QA engineer');
 
 select * from roles_two;
 
