@@ -1,4 +1,4 @@
-87654321
+987654321
 --1. Вывести всех работников чьи зарплаты есть в базе, вместе с зарплатами.
 
 select employees.employee_name, salaryes.monthly_salary from employees 
