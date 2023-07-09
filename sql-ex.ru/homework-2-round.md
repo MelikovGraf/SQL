@@ -56,3 +56,13 @@ Select product.type, product.model, laptop.speed from laptop
 inner join product on product.model = laptop.model
 where product.type like 'Laptop' and laptop.speed < (select min(pc.speed) from pc)
 ```
+
+###### :)
+Найдите производителей самых дешевых цветных принтеров. Вывести: maker, price
+```
+Select distinct product.maker, printer.price from product
+inner join printer on printer.model = product.model
+where printer.color like 'y' 
+and printer.price in (select min(printer.price) from printer
+where printer.color like 'y')
+```
