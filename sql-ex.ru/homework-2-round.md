@@ -32,3 +32,11 @@ where product.type like 'Laptop'
 Select printer.model, printer.price from printer
 where printer.price in(select max(printer.price) from printer)
 ```
+
+###### Предложение HAVING
+13. Найдите размеры жестких дисков, совпадающих у двух и более PC. Вывести: HD
+```
+select pc.hd from pc
+group by pc.hd
+HAVING COUNT(*) > 1;
+```
