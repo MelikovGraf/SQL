@@ -34,7 +34,7 @@ where printer.price in(select max(printer.price) from printer)
 ```
 
 ###### Предложение HAVING
-13. Найдите размеры жестких дисков, совпадающих у двух и более PC. Вывести: HD
+15. Найдите размеры жестких дисков, совпадающих у двух и более PC. Вывести: HD
 ```
 select pc.hd from pc
 group by pc.hd
