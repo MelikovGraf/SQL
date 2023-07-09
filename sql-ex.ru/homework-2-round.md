@@ -25,3 +25,10 @@ EXCEPT
 select product.maker from product
 where product.type like 'Laptop'
 ```
+
+##### Подзапросы select
+Найдите модели принтеров, имеющих самую высокую цену. Вывести: model, price
+```
+Select printer.model, printer.price from printer
+where printer.price in(select max(printer.price) from printer)
+```
