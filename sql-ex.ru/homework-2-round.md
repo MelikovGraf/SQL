@@ -40,3 +40,19 @@ select pc.hd from pc
 group by pc.hd
 HAVING COUNT(*) > 1;
 ```
+
+###### :)
+Найдите пары моделей PC, имеющих одинаковые скорость и RAM. В результате каждая пара указывается только один раз, т.е. (i,j), но не (j,i), Порядок вывода: модель с большим номером, модель с меньшим номером, скорость и RAM.
+```
+select pc.model, newpc.model, pc.speed, pc.ram from pc, pc as newpc
+where pc.speed = newpc.speed and pc.ram = newpc.ram and pc.model > newpc.model
+```
+
+###### :)
+Найдите модели ПК-блокнотов, скорость которых меньше скорости каждого из ПК.
+Вывести: type, model, speed
+```
+Select product.type, product.model, laptop.speed from laptop
+inner join product on product.model = laptop.model
+where product.type like 'Laptop' and laptop.speed < (select min(pc.speed) from pc)
+```
