@@ -17,3 +17,10 @@ select min ( code ) + 20,
             max ( price ) / 1.5
      from laptop group by model
 ```
+
+Удалить из таблицы PC компьютеры, имеющие минимальный объем диска или памяти. 
+```
+DELETE FROM PC WHERE
+pc.ram=(select MIN(ram) from pc) or
+pc.hd=(select MIN(hd) from pc)
+```
