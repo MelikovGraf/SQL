@@ -10,7 +10,7 @@ union
 Select printer.model, printer.price from printer 
 inner join product on product.model = printer.model
 where product.maker like 'B'
-order by price desc;```
+order by price desc;    ```
 
 
 #### В результирующий набор попадают только те строки, которые присутствуют в обоих запросах (INTERSECT) или только те строки первого запроса, которые отсутствуют во втором (EXCEPT).
