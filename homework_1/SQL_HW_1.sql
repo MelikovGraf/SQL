@@ -1,46 +1,39 @@
---  * Создать таблицу employees
---  * - id. serial,  primary key,
---  * - employee_name. Varchar(50), not null
---  * Наполнить таблицу employee 70 строками.
-
-
+--  Создать таблицу employees
+--  id. serial,  primary key,
+--  employee_name. Varchar(50), not null
+--  Наполнить таблицу employee 70 строками.
 create table employees (
 id serial primary key,
 employee_name varchar(50) not null
 );
 
- -- * Запрос generate_series(1, 70) создает серию чисел от 1 до 70,
- -- * и для каждого числа выполняется вставка строки в таблицу "employees".
- -- * Оператор || используется для конкатенации строки "employee" с числом из серии
-
+ -- Запрос generate_series(1, 70) создает серию чисел от 1 до 70,
+ -- и для каждого числа выполняется вставка строки в таблицу "employees".
+ -- Оператор || используется для конкатенации строки "employee" с числом из серии
 insert into employees (employee_name)
 select 'employee' || generate_series(1, 70);
 
- -- * Таблица salary
- -- * Создать таблицу salary
- -- * - id. Serial  primary key,
- -- * - monthly_salary. Int, not null
- -- * Наполнить таблицу salary 15 строками:
-
-
+ -- Таблица salary
+ -- Создать таблицу salary
+ -- id. Serial  primary key,
+ -- monthly_salary. Int, not null
+ -- Наполнить таблицу salary 15 строками:
 create table salary2( 
 id serial primary key,
 monthly_salary int not null
 );
 
- -- * Запрос generate_series(0, 15) создает серию чисел от 0 до 15
-
+ -- Запрос generate_series(0, 15) создает серию чисел от 0 до 15
 insert into salary2 (monthly_salary)
 select 1000 + 100 * generate_series(0, 15);
 
- -- * Таблица employee_salary
- -- * Создать таблицу employee_salary
- -- * - id. Serial  primary key,
- -- * - employee_id. Int, not null, unique
- -- * - salary_id. Int, not null
- -- * Наполнить таблицу employee_salary 40 строками:
- -- * - в 10 строк из 40 вставить несуществующие employee_id
-
+ -- Таблица employee_salary
+ -- Создать таблицу employee_salary
+ -- id. Serial  primary key,
+ -- employee_id. Int, not null, unique
+ -- salary_id. Int, not null
+ -- Наполнить таблицу employee_salary 40 строками:
+ -- в 10 строк из 40 вставить несуществующие employee_id
 create table employee_salary2 (
 id serial primary key,
 employee_id int not null unique,
