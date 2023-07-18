@@ -1,10 +1,9 @@
-/*
- * Таблица employees
+* Таблица employees
  * Создать таблицу employees
  * - id. serial,  primary key,
  * - employee_name. Varchar(50), not null
  * Наполнить таблицу employee 70 строками.
- * */
+
 
 create table employees (
 id serial primary key,
@@ -12,22 +11,21 @@ employee_name varchar(50) not null
 );
 
 insert into employees (employee_name)
-/* 
+
  * Запрос generate_series(1, 70) создает серию чисел от 1 до 70,
  * и для каждого числа выполняется вставка строки в таблицу "employees".
  * Оператор || используется для конкатенации строки "employee" с числом из серии
- */
+
 select 'employee' || generate_series(1, 70);
 
 select * from employees;
 
-/*
  * Таблица salary
  * Создать таблицу salary
  * - id. Serial  primary key,
  * - monthly_salary. Int, not null
  * Наполнить таблицу salary 15 строками:
- * */
+
 
 create table salary2( 
 id serial primary key,
@@ -35,14 +33,13 @@ monthly_salary int not null
 );
 
 insert into salary2 (monthly_salary)
-/* 
+
  * Запрос generate_series(0, 15) создает серию чисел от 0 до 15
- */
+
 select 1000 + 100 * generate_series(0, 15);
 
 select * from salary2;
 
-/*
  * Таблица employee_salary
  * Создать таблицу employee_salary
  * - id. Serial  primary key,
@@ -50,7 +47,6 @@ select * from salary2;
  * - salary_id. Int, not null
  * Наполнить таблицу employee_salary 40 строками:
  * - в 10 строк из 40 вставить несуществующие employee_id
- * */
 
 create table employee_salary2 (
 id serial primary key,
@@ -104,14 +100,12 @@ values
 
 select * from employee_salary2;
 
-/* 
  * Таблица roles
  * Создать таблицу roles
  * - id. Serial  primary key,
  * - role_name. int, not null, unique
  * Поменять тип столба role_name с int на varchar(30)
  * Наполнить таблицу roles 20 строками:
- * */
 
 create table roles2( 
 id serial primary key,
@@ -145,15 +139,12 @@ VALUES('Junior Python developer'),
 
 select * from roles2;
 
-/*
  * Таблица roles_employee
  * Создать таблицу roles_employee
  * - id. Serial  primary key,
  * - employee_id. Int, not null, unique (внешний ключ для таблицы employees, поле id)
  * - role_id. Int, not null (внешний ключ для таблицы roles, поле id)
  * Наполнить таблицу roles_employee 40 строками:
- * */
-
 
 create table roles_employee (
 id serial primary key,
@@ -204,41 +195,3 @@ VALUES(7,2),
 (69,11),
 (70,9),
 (55,10);
-
-select * from roles_employee;
-   		
-/* Удалить таблицу */
-drop table salary;
-
-/* Удалить данные из таблицы */
-delete from salary
-where id > 15;
-
-/* Перезаписать данные в таблице */
-update salary
-set monthly_salary = 1000;
-
-update salary 
-set monthly_salary = 1450
-where id = 5;
-
-/* Вывод данных: */
-select role_title, monthly_salary from roles_salary
-join roles on roles_salary.id_role = roles.id
-join salary on roles_salary.id_salary = salary.id;
-
-/* Вывод данных. Сортировка по возрастанию */
-select * from salary
-order by id;	
-
-/* Добавить колонку: */
-alter table roles
-add column parking int;
-
-/* Переименовать колонку: */
-alter table roles
-rename column parking to taxi;
-
-/* Удалить колонку: */
-alter table roles
-drop column taxi;
