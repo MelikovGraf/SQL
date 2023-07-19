@@ -1,5 +1,5 @@
 # SQL теория
-
+ 
 ![alt text](https://github.com/MelikovGraf/GIT/assets/98654937/ad52c14b-53c0-4b72-8c70-d7dc90b6460f)
 
 __SQL__ (Structured Query Language)
