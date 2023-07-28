@@ -71,20 +71,20 @@ and name like '%8%';
 
 -- Вывести пользователей, у которых id равен 110
 select name, id from students
-where id = '110';
+where id = 110;
 
 -- Вывести пользователей, у которых id равен 153
 select name, id from students
-where id = '153';
+where id = 153;
 
 -- Вывести пользователей, у которых id больше 140
 select name, id from students
-where id > '140'
+where id > 140
 order by id asc;;
 
 -- Вывести пользователей, у которых id меньше 130
 select name, id from students
-where id < '130'
+where id < 130
 order by id asc;
 
 -- Вывести пользователей, у которых id меньше 127 или больше 188
@@ -116,8 +116,7 @@ order by id asc;
 select name, password from students
 where password in ('12333', '1m313', '123313');
 
--- Вывести пользователей, где created_on равен 2020-10-03 00:00:00,
--- 2021-05-19 00:00:00, 2021-03-26 00:00:00
+-- Вывести пользователей, где created_on равен 2020-10-03 00:00:00, 2021-05-19 00:00:00, 2021-03-26 00:00:00
 select name, created_on from students
 where created_on in ('2020-10-03 00:00:00', '2021-05-19 00:00:00', '2021-03-26 00:00:00');
 
@@ -128,7 +127,7 @@ select MIN(id) from students;
 select MAX(id) from students;
 
 -- Вывести количество пользователей
-select count(distinct name) AS unique_users_count
+select count(name)
 from students
 WHERE name IS NOT NULL;
 
